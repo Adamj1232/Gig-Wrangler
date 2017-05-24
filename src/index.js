@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/main.css'
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -23,7 +24,7 @@ ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
   </Provider>,
-document.getElementById('main')
+  document.getElementById('main')
 )
 // <Provider store={store}>
 // <Router >

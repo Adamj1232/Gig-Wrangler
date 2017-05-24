@@ -12,7 +12,7 @@ export default class VenueGrid extends Component {
   render() {
     const { searchResults, venues, searched } = this.props;
     console.log(this.props);
-    if(searched === true && searchResults.length ===0){
+    if(searched === true && searchResults.length === 0){
       return(
         <div>No music venues found in selected location</div>
       )

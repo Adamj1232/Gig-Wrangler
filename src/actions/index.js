@@ -4,10 +4,3 @@ export const retrieveVenues = (venues) => {
     venues
   };
 };
-
-export const searchedVenues = (venues) => {
-  return {
-    type: 'SEARCHED_VENUES',
-    venues
-  };
-};

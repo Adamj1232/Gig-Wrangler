@@ -4,18 +4,21 @@ import React from 'react';
 
 
 export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmail, bookingContact, PAStatus, venueComments}) => {
-
+  const venueComment = (note, title) => {
+    if(note){
+    return (<h5>{title}: {note}</h5>)
+  }}
 
   return (
     <article  className="venue-card">
       <h3>{venueName}</h3>
       <h4>{city}, {state}</h4>
       <h5>{url}</h5>
-      <h5>{bookingContact}</h5>
-      <h5>{bookingEmail}</h5>
+      {venueComment(bookingContact, 'Booking Contact')}
+      {venueComment(bookingEmail, 'Booking Email')}
       <h5>{venuePhone}</h5>
-      <h5>PA: {PAStatus}</h5>
-      <h5>Venue Comments: {venueComments}</h5>
+      {venueComment(PAStatus, 'PA')}
+      {venueComment(venueComments, 'Venue Comments')}
     </article>
   )
 }
