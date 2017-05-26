@@ -24,12 +24,3 @@ export const searchByState = (selectedState, selectedCity) => {
 })
 return lowerCaseSelectedCity === '' ? search : searchByCity(lowerCaseSelectedCity, search)
 };
-
-
-export const venueSearch = ( state ) => {
-  return venueData.filter( venue => {
-    if(venue.State === state ){
-      return venue
-    }
-  })
-}

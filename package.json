@@ -1,23 +1,24 @@
 {
- "name": "gig-wrangler",
- "version": "0.1.0",
- "private": true,
- "dependencies": {
-   "react": "^15.5.4",
-   "react-dom": "^15.5.4",
-   "react-redux": "^5.0.5",
-   "react-router": "^4.1.1",
-   "react-router-redux": "^4.0.8",
-   "redux": "^3.6.0",
-   "redux-thunk": "^2.2.0"
- },
- "devDependencies": {
-   "react-scripts": "1.0.5"
- },
- "scripts": {
-   "start": "react-scripts start",
-   "build": "react-scripts build",
-   "test": "react-scripts test --env=jsdom",
-   "eject": "react-scripts eject"
- }
+  "name": "gig-wrangler",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-google-maps": "^6.3.0",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }

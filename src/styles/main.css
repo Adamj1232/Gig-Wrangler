@@ -40,3 +40,25 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }*/
+
+.containerElement {
+  margin: auto;
+  width: 80%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #032459;
+}
+
+.mapElement {
+  height: 90%;
+  width: 90%;
+}
+
+#venue-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
