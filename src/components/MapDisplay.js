@@ -8,8 +8,12 @@ const MapDisplay = withGoogleMap(({ searchResults }) => {
   let mapCenter = { lat:40 , lng: -100 }
   let zoomIndex = 4
   if(searchResults.length!==0){
+    const sortedSearch = searchResults.sort( (venueA, venueB) => {
+      return venueB.cityVenues.length - venueA.cityVenues.length
+    })
+    console.log(sortedSearch);
     zoomIndex = 6
-    mapCenter = {lat:searchResults[0].Latitude , lng: searchResults[0].Longitude }
+    mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
   // const searchLocation = searchResults.filter( venue => {
@@ -21,18 +25,22 @@ const MapDisplay = withGoogleMap(({ searchResults }) => {
   //     return venue
   //   }
   // })
-
-  const venuePins = venueLocationData.map((location, index) => {
-    if(location.Latitude){
-      let count = venueCount[location.State][location.CITY].toString()
-      // console.log(venueCount)
+  const venuePins = Object.keys(venueCount).map((location, index) => {
+    const pin = Object.keys(venueCount[location]).map((city, i) => {
+      let cityInfo = venueCount[location][city]
+      let Latitude = cityInfo.lat
+      let Longitude = cityInfo.long
+      if(Latitude !== '' && Longitude !== ''){
       return <Marker
-                key={index}
-                position={{lat: location.Latitude , lng: location.Longitude}}
-                label={count}
+                key={i}
+                position={{lat: Latitude , lng: Longitude}}
+                label={cityInfo.count.toString()}
               />
-    }
-    return null
+      } else {
+        return null
+      }
+    })
+    return pin
   })
 
   // <InfoWindow onCloseClick={()=> clickInfoBox(claim)}>
