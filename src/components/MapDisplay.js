@@ -24,7 +24,8 @@ const MapDisplay = withGoogleMap(({ searchResults }) => {
 
   const venuePins = venueLocationData.map((location, index) => {
     if(location.Latitude){
-      let count = venueCount[location.CITY].toString()
+      let count = venueCount[location.State][location.CITY].toString()
+      // console.log(venueCount)
       return <Marker
                 key={index}
                 position={{lat: location.Latitude , lng: location.Longitude}}
