@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^2.8.2",
+    "fetch-mock": "^5.11.0",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-google-maps": "^6.3.0",
     "react-redux": "^5.0.5",
@@ -13,6 +16,10 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "enzyme": "^2.8.2",
+    "fetch-mock": "^5.10.0",
+    "react-addons-test-utils": "^15.5.1",
     "react-scripts": "1.0.5"
   },
   "scripts": {
