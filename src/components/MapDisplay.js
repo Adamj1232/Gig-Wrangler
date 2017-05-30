@@ -3,11 +3,11 @@ import { venueCount } from '../helper-functions/venueLocationData'
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 
-const MapDisplay = withGoogleMap(({ searchResults }) => {
+const MapDisplay = withGoogleMap(({ searchResults, searchFromMap }) => {
 
   let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
-  
+
   if( searchResults.length !== 0){
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
       return venueB.cityVenues.length - venueA.cityVenues.length
@@ -26,6 +26,7 @@ const MapDisplay = withGoogleMap(({ searchResults }) => {
                 key={i}
                 position={{lat: Latitude , lng: Longitude}}
                 label={cityInfo.count.toString()}
+                onClick={() => searchFromMap(location, city)}
               />
       } else {
         return null
