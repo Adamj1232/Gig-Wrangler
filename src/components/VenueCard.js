@@ -19,6 +19,7 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
     </article>
   )
 }
+// <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a>
 
 // MovieCard.propTypes = {
 //   title: PropTypes.string.isRequired,

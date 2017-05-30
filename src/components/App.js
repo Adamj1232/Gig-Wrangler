@@ -12,7 +12,8 @@ export default class App extends Component {
       city: '',
       state: '',
       searchResults: [],
-      searched: false
+      searched: false,
+      searchedCity: ''
     }
   }
 
@@ -47,15 +48,15 @@ export default class App extends Component {
   render() {
     return (
       <section>
-      <h1>GigWrangler</h1>
-      <input type='text'
-        value={this.state.city}
-        placeholder='please enter a city'
-        onChange={(e) => {
-          this.typeHandler(e, 'city')}} />
-      <form>
-      Select a state:
-        <select id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
+        <h1>GigWrangler</h1>
+        <input type='text'
+          value={this.state.city}
+          placeholder='please enter a city'
+          onChange={(e) => {
+            this.typeHandler(e, 'city')}} />
+        <form>
+        Select a state:
+          <select id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
           <option value=""></option>
           <option value="AL">Alabama</option>
         	<option value="AK">Alaska</option>
