@@ -22,10 +22,17 @@ export default class App extends Component {
     })
   }
 
-  searchVenues(e){
+  searchVenues(e, state, city){
     e.preventDefault()
     this.setState({
-      searchResults: searchByState(this.state.state, this.state.city),
+      searchResults: searchByState(state, city),
+      searched: true
+    })
+  }
+
+  searchVenuesByMap(state, city){
+    this.setState({
+      searchResults: searchByState(state, city),
       searched: true
     })
   }
@@ -95,13 +102,14 @@ export default class App extends Component {
         	<option value="WI">Wisconsin</option>
         	<option value="WY">Wyoming</option>
         </select>
-        <button onClick={(e)=> this.searchVenues(e)}> Submit </button>
+        <button onClick={(e)=> this.searchVenues(e, this.state.state, this.state.city)}> Submit </button>
       </form>
       <MapContainer
         mapElement={ <div className='mapElement' /> }
         containerElement={ <div className='containerElement'/> }
         venues={this.props.venueReducer}
         searchResults={this.state.searchResults}
+        searchFromMap={this.searchVenuesByMap.bind(this)}
       />
       <VenueGridContainer searchResults={this.state.searchResults} searched={this.state.searched} />
     </section>
