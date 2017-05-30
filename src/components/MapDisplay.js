@@ -1,30 +1,21 @@
 import React from 'react'
-import { venueLocationData, venueCount } from '../helper-functions/venueLocationData'
+import { venueCount } from '../helper-functions/venueLocationData'
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 
 const MapDisplay = withGoogleMap(({ searchResults }) => {
 
-  let mapCenter = { lat:40 , lng: -100 }
+  let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
-  if(searchResults.length!==0){
+  
+  if( searchResults.length !== 0){
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
       return venueB.cityVenues.length - venueA.cityVenues.length
     })
-    console.log(sortedSearch);
-    zoomIndex = 6
+    zoomIndex = 7
     mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
-  // const searchLocation = searchResults.filter( venue => {
-  //   const total = searchResults.reduce( (num, eachLocation) => {
-  //     return eachLocation.count > num ? num = eachLocation.count : num
-  //     // return num
-  //   }, 0)
-  //   if(venue.count === total){
-  //     return venue
-  //   }
-  // })
   const venuePins = Object.keys(venueCount).map((location, index) => {
     const pin = Object.keys(venueCount[location]).map((city, i) => {
       let cityInfo = venueCount[location][city]
