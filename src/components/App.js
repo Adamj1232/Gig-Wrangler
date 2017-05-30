@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {searchByState} from '../search-functions/searchCleaner'
+import { searchByState } from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
 import MapContainer from '../containers/MapContainer'
 
@@ -22,18 +22,25 @@ export default class App extends Component {
     })
   }
 
+  capsFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   searchVenues(e, state, city){
     e.preventDefault()
     this.setState({
       searchResults: searchByState(state, city),
-      searched: true
+      searched: true,
+      city: '',
+      searchedCity: this.capsFirstLetter(city)
     })
   }
 
   searchVenuesByMap(state, city){
     this.setState({
       searchResults: searchByState(state, city),
-      searched: true
+      searched: true,
+      searchedCity: city
     })
   }
 
@@ -42,7 +49,7 @@ export default class App extends Component {
       <section>
       <h1>GigWrangler</h1>
       <input type='text'
-        value={this.state.name}
+        value={this.state.city}
         placeholder='please enter a city'
         onChange={(e) => {
           this.typeHandler(e, 'city')}} />
@@ -111,7 +118,13 @@ export default class App extends Component {
         searchResults={this.state.searchResults}
         searchFromMap={this.searchVenuesByMap.bind(this)}
       />
-      <VenueGridContainer searchResults={this.state.searchResults} searched={this.state.searched} />
+      <VenueGridContainer
+        searchedState={this.state.state}
+        searchedCity={this.state.searchedCity}
+        venues={this.props.venueReducer}
+        searchResults={this.state.searchResults}
+        searched={this.state.searched}
+      />
     </section>
     )
   }

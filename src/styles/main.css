@@ -70,3 +70,15 @@ body {
   overflow: hidden !important;
   text-overflow: ellipsis;
 }
+
+#venue-grid .results-display {
+  display: block;
+  width: 80%;
+  height: 60px;
+  font-size: 2em;
+  background-color: #032459;
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
