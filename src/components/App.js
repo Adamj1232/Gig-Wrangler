@@ -22,19 +22,25 @@ export default class App extends Component {
     })
   }
 
+  capsFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   searchVenues(e, state, city){
     e.preventDefault()
     this.setState({
       searchResults: searchByState(state, city),
       searched: true,
-      city: ''
+      city: '',
+      searchedCity: this.capsFirstLetter(city)
     })
   }
 
   searchVenuesByMap(state, city){
     this.setState({
       searchResults: searchByState(state, city),
-      searched: true
+      searched: true,
+      searchedCity: city
     })
   }
 
@@ -113,9 +119,12 @@ export default class App extends Component {
         searchFromMap={this.searchVenuesByMap.bind(this)}
       />
       <VenueGridContainer
-      venues={this.props.venueReducer}
-      searchResults={this.state.searchResults}
-      searched={this.state.searched} />
+        searchedState={this.state.state}
+        searchedCity={this.state.searchedCity}
+        venues={this.props.venueReducer}
+        searchResults={this.state.searchResults}
+        searched={this.state.searched}
+      />
     </section>
     )
   }
