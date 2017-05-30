@@ -35,12 +35,6 @@ body {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/*#venue-grid {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}*/
-
 .containerElement {
   margin: auto;
   width: 80%;

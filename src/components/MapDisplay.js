@@ -4,46 +4,57 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 
 const MapDisplay = withGoogleMap(({ searchResults }) => {
-  //needs state so will re render when map coordinates update
-
 
   let mapCenter = { lat:40 , lng: -100 }
+  let zoomIndex = 4
   if(searchResults.length!==0){
-    mapCenter = {lat:searchResults[0].Latitude , lng: searchResults[0].Longitude }};
+    const sortedSearch = searchResults.sort( (venueA, venueB) => {
+      return venueB.cityVenues.length - venueA.cityVenues.length
+    })
+    console.log(sortedSearch);
+    zoomIndex = 6
+    mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
+  };
 
-  const searchLocation = searchResults.filter( venue => {
-    const total = searchResults.reduce( (num, eachLocation) => {
-      return eachLocation.count > num ? num = eachLocation.count : num
-      return num
-    }, 0)
-    if(venue.count === total){
-      return venue
-    }
-  })
-
-  const venuePins = venueLocationData.map((location, index) => {
-    if(location.Latitude){
-      let count = venueCount[location.CITY].toString()
+  // const searchLocation = searchResults.filter( venue => {
+  //   const total = searchResults.reduce( (num, eachLocation) => {
+  //     return eachLocation.count > num ? num = eachLocation.count : num
+  //     // return num
+  //   }, 0)
+  //   if(venue.count === total){
+  //     return venue
+  //   }
+  // })
+  const venuePins = Object.keys(venueCount).map((location, index) => {
+    const pin = Object.keys(venueCount[location]).map((city, i) => {
+      let cityInfo = venueCount[location][city]
+      let Latitude = cityInfo.lat
+      let Longitude = cityInfo.long
+      if(Latitude !== '' && Longitude !== ''){
       return <Marker
-                key={index}
-                position={{lat: location.Latitude , lng: location.Longitude}}
-                label={count}
+                key={i}
+                position={{lat: Latitude , lng: Longitude}}
+                label={cityInfo.count.toString()}
               />
-    }
+      } else {
+        return null
+      }
+    })
+    return pin
   })
-    // <InfoWindow
-    //    position={this.state.windowPosition}
-    //    onCloseclick={this.toggleInfoWindow}
-    //    options={{pixelOffset: new google.maps.Size(0,-30)}}
-    //    >
-    //    content
-    //    </InfoWindow>
-    console.log(mapCenter)
+
+  // <InfoWindow onCloseClick={()=> clickInfoBox(claim)}>
+  //                   <div>
+  //                     <div>{sightings[claim].summary}</div>
+  //                     <a href={sightings[claim].url} target='_blank'>{'Read More'}</a>
+  //                 </div>
+  //                 </InfoWindow>
+
   return (
     <div id='map-container'>
     <GoogleMap
-      defaultZoom={4.2}
-      defaultCenter={mapCenter}>
+      zoom={zoomIndex}
+      center={mapCenter}>
       {venuePins}
     </GoogleMap>
   </div>

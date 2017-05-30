@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {searchByState} from '../search-functions/searchCleaner'
-// import searchByCity  from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
 import MapContainer from '../containers/MapContainer'
-import { venueSearch } from '../search-functions/searchCleaner'
-
 
 // import { Route, Link, Switch } from 'react-router-dom';
 
