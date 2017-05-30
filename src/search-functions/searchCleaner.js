@@ -3,6 +3,7 @@ import { venueData } from '../complete-data/data-set';
 const searchByCity = (selectedCity, venues) => {
  let searchCity = venues.filter( venue => {
    const lowerCaseVenuesCity = venue.CITY.toLowerCase()
+   
     if(lowerCaseVenuesCity === selectedCity){
       return venue
     }
@@ -17,6 +18,7 @@ export const searchByState = (selectedState, selectedCity) => {
 
   let search = venueData.filter( venue => {
     const lowerCaseVenuesState = venue.State.toLowerCase()
+
     if(lowerCaseSelectedState === ''){
       return venue
     } else if (lowerCaseSelectedState === lowerCaseVenuesState){

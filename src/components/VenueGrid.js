@@ -11,9 +11,11 @@ export default class VenueGrid extends Component {
         <div>No music venues found in selected location</div>
       )
     }
+
     return (
       <section id="venue-grid">
-        { searchResults.map((venue, index) => {
+
+        { searchResults.map( (venue, index) => {
           return (
             <VenueCard venueName={venue.NAME}
                        state={venue.State}
@@ -27,8 +29,7 @@ export default class VenueGrid extends Component {
                        key={index}
             />
           )
-        })
-      }
+        })}
       </section>
     )
   }
