@@ -2,7 +2,6 @@ body {
   background: #ffffff;
   font-family: sans-serif;
   font-weight: 100;
-  /*background-image: url("./images/ConcertCrowd.jpg");*/
   background-repeat: no-repeat;
   background: url("./images/ConcertCrowd.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -22,17 +21,26 @@ body {
 
 #main {
   text-align: center;
-  /*background-image: url("./images/ConcertCrowd.jpg");*/
 }
 
 .venue-card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 300px;
   width: 300px;
   color: black;
   border: 1px solid white;
   margin: 15px 10px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.venue-card h5, h4, h3 {
+  margin-bottom: 0px;
+}
+
+.venue-card h3, h5 {
+  margin-top: 10px;
 }
 
 .containerElement {
@@ -55,4 +63,10 @@ body {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.website {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }

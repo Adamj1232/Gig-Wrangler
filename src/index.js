@@ -4,9 +4,6 @@ import './styles/main.css'
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-// import thunk from 'redux-thunk'
-// import { getMovies, allFavorites } from './actions/index'
-// import { Router, Route } from 'react-router'
 import { venueData } from './complete-data/data-set';
 import rootReducer from './reducers/index';
 import AppContainer from './containers/AppContainer';
@@ -26,8 +23,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('main')
 )
-// <Provider store={store}>
-// <Router >
-// <Route path="/" component={AppContainer}/>
-// </Router>
-// </Provider>

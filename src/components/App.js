@@ -3,7 +3,6 @@ import {searchByState} from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
 import MapContainer from '../containers/MapContainer'
 
-// import { Route, Link, Switch } from 'react-router-dom';
 
 
 export default class App extends Component {
