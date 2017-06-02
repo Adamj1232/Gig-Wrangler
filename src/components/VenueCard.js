@@ -1,11 +1,21 @@
 import React from 'react';
 
 export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmail, bookingContact, PAStatus, venueComments}) => {
+
+  function validateEmail(email) {
+    const validate = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return validate.test(email);
+  }
+
   const venueComment = (info, title) => {
-    if(title === 'Booking Email'){
-      console.log('email');
-      return (<a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top">E-Mail: {venueName}</a>)
-    } else if(info){
+    if(title === 'Booking Email' && validateEmail(info)){
+      return (
+        <div>
+        <h5>{info}</h5>
+        <a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top">Send Email to {venueName}</a>
+        </div>
+      )
+    } else if(info && title !== 'Booking Email'){
       return (<h5>{title}: {info}</h5>)
   }}
 
