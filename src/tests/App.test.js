@@ -4,6 +4,8 @@ import App from '../components/App'
 import fetchMock from 'fetch-mock'
 import { shallow, mount } from 'enzyme'
 import { Provider } from 'react-redux';
+import sinon from 'sinon';
+
 // const store = createStore(rootReducer, devTools);
 // store.dispatch(retrieveVenues(venueData));
 // import rootReducer from './reducers/index';
@@ -31,15 +33,30 @@ describe('App instantiation', () => {
     expect(wrapper.state('searchResults')).toEqual([])
     expect(wrapper.state('searched')).toEqual(false)
   })
+
+  it('should pass functional props to proper child elements',  () => {
+
+    expect(wrapper.props().children[1].props.onChange.length).toEqual(1)
+    expect(wrapper.props().children[2].props.children[1].props.onChange.length).toEqual(1)
+    expect(wrapper.props().children[2].props.children[2].props.onClick.length).toEqual(1)
+    expect(wrapper.props().children[3].props.searchResults).toEqual([])
+    expect(wrapper.props().children[3].props.searchFromMap.length).toEqual(2)
+    expect(wrapper.props().children[4].props).toEqual({          searchedState: '',
+      searchedCity: '',
+      venues: undefined,
+      searchResults: [],
+      searched: false })
+  })
 })
+
 
 describe('App functionality', () => {
 
- it('should return all venue results when searched with empty input fields', () => {
+  it('should return all venue results when searched with empty input fields', () => {
 
-   const wrapper = shallow(<App />)
-   const input = wrapper.find('input');
-   const submitBtn = wrapper.find('button')
+    const wrapper = shallow(<App />)
+    const input = wrapper.find('input');
+    const submitBtn = wrapper.find('button')
 
     input.simulate('focus');
     input.simulate('change', { target: { value: '' } });
@@ -50,17 +67,17 @@ describe('App functionality', () => {
       preventDefault: () => {
       }
     });
-    expect(wrapper.state('searchResults').length).toEqual(3322);
+    expect(wrapper.state('searchResults').length).toEqual(3298);
     expect(wrapper.state('searchedCity')).toEqual('')
     expect(wrapper.state('city')).toEqual('');    expect(wrapper.state('searched')).toEqual(true)
 
- })
+  })
 
- it('should update App state when search city is input, then clears after submit button and return searchResults found in denver and return city with first character to uppercase', () => {
+  it('should update App state when search city is input, then clears after submit button and return searchResults found in denver and return city with first character to uppercase', () => {
 
-   const wrapper = shallow(<App />)
-   const input = wrapper.find('input');
-   const submitBtn = wrapper.find('button')
+    const wrapper = shallow(<App />)
+    const input = wrapper.find('input');
+    const submitBtn = wrapper.find('button')
 
     expect(wrapper.state('searchedCity')).toEqual('')
     input.simulate('focus');
@@ -76,12 +93,11 @@ describe('App functionality', () => {
     expect(wrapper.state('searchResults')[0].CITY).toEqual('Denver');
     expect(wrapper.state('searchResults')[20].CITY).toEqual('Denver');
     expect(wrapper.state('searchResults')[50].CITY).toEqual('Denver');
-
     expect(wrapper.state('city')).toEqual('');
  })
 
 
- it('should update App state when search City is input, then clears after submit button and return searchResults found in Wis', () => {
+  it('should update App state when search City is input, then clears after submit button and return searchResults found in Wis', () => {
 
   const wrapper = shallow(<App />)
   const dropDown = wrapper.find('select')
@@ -90,12 +106,12 @@ describe('App functionality', () => {
   expect(wrapper.state('searchedCity')).toEqual('')
   expect(wrapper.state('state')).toEqual('');
   dropDown.simulate('change', {target: { value : 'WI'}})
+  expect(wrapper.state('state')).toEqual('WI');
 
   submitBtn.simulate('click', {
     preventDefault: () => {
     }
   });
-  expect(wrapper.state('state')).toEqual('WI');
   expect(wrapper.state('city')).toEqual('');
   expect(wrapper.state('searched')).toEqual(true)
   expect(wrapper.state('searchResults').length).toEqual(72);
@@ -105,35 +121,37 @@ describe('App functionality', () => {
  })
 
 
- it('should update App state when search State and City is input, then clears after submit button and return searchResults found in Wis city of Madison', () => {
+  it('should update App state when search State and City is input, then clears after submit button and return searchResults found in Wis city of Madison', () => {
 
-   const wrapper = shallow(<App />)
-   const dropDown = wrapper.find('select')
-   const submitBtn = wrapper.find('button')
-   const input = wrapper.find('input');
+    const wrapper = shallow(<App />)
+    const dropDown = wrapper.find('select')
+    const submitBtn = wrapper.find('button')
+    const input = wrapper.find('input');
 
-   expect(wrapper.state('searchedCity')).toEqual('')
-   expect(wrapper.state('state')).toEqual('');
-   dropDown.simulate('change', {target: { value : 'WI'}})
+    expect(wrapper.state('searchedCity')).toEqual('')
+    expect(wrapper.state('state')).toEqual('');
+    dropDown.simulate('change', {target: { value : 'WI'}})
 
-   input.simulate('focus');
-   input.simulate('change', { target: { value: 'madison' } });
-   expect(wrapper.state('city')).toEqual('madison');
+    input.simulate('focus');
+    input.simulate('change', { target: { value: 'madison' } });
+    expect(wrapper.state('city')).toEqual('madison');
+    expect(wrapper.state('state')).toEqual('WI');
 
-   submitBtn.simulate('click', {
-     preventDefault: () => {
-     }
-   });
-   expect(wrapper.state('searchedCity')).toEqual('Madison')
-   expect(wrapper.state('state')).toEqual('WI');
-   expect(wrapper.state('city')).toEqual('');
-   expect(wrapper.state('searched')).toEqual(true)
-   expect(wrapper.state('searchResults').length).toEqual(18);
-   expect(wrapper.state('searchResults')[0].State).toEqual('WI');
-   expect(wrapper.state('searchResults')[0].CITY).toEqual('Madison');
-   expect(wrapper.state('searchResults')[6].State).toEqual('WI');
-   expect(wrapper.state('searchResults')[6].CITY).toEqual('Madison');
-   expect(wrapper.state('searchResults')[12].State).toEqual('WI');
-   expect(wrapper.state('searchResults')[12].CITY).toEqual('Madison');
- })
+    submitBtn.simulate('click', {
+      preventDefault: () => {
+      }
+    });
+
+    expect(wrapper.state('searchedCity')).toEqual('Madison')
+    expect(wrapper.state('city')).toEqual('');
+    expect(wrapper.state('searched')).toEqual(true)
+    expect(wrapper.state('searchResults').length).toEqual(18);
+    expect(wrapper.state('searchResults')[0].State).toEqual('WI');
+    expect(wrapper.state('searchResults')[0].CITY).toEqual('Madison');
+    expect(wrapper.state('searchResults')[6].State).toEqual('WI');
+    expect(wrapper.state('searchResults')[6].CITY).toEqual('Madison');
+    expect(wrapper.state('searchResults')[12].State).toEqual('WI');
+    expect(wrapper.state('searchResults')[12].CITY).toEqual('Madison');
+  })
+
 })

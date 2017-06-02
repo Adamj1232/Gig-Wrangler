@@ -1,7 +1,7 @@
-const venueReducer = (state={}, action) => {
+const venueReducer = (state=[], action) => {
   switch (action.type) {
   case 'RETRIEVED_VENUES':
-    return action.venues;
+    return [...action.venues];
   default:
     return state;
   }
