@@ -21,7 +21,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap }) => {
       let cityInfo = venueCount[location][city]
       let Latitude = cityInfo.lat
       let Longitude = cityInfo.long
-      if(Latitude !== '' && Longitude !== ''){
+      if(Latitude !== '' && Longitude !== '' && typeof(Latitude) === 'number' && typeof(Longitude) === 'number'){
       return <Marker
                 key={i}
                 position={{lat: Latitude , lng: Longitude}}

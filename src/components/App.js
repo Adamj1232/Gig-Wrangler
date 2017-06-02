@@ -13,7 +13,8 @@ export default class App extends Component {
       state: '',
       searchResults: [],
       searched: false,
-      searchedCity: ''
+      searchedCity: '',
+      searchedState: ''
     }
   }
 
@@ -33,7 +34,9 @@ export default class App extends Component {
       searchResults: searchByState(state, city),
       searched: true,
       city: '',
-      searchedCity: this.capsFirstLetter(city)
+      searchedCity: this.capsFirstLetter(city),
+      state: '',
+      searchedState: state
     })
   }
 
@@ -56,7 +59,7 @@ export default class App extends Component {
             this.typeHandler(e, 'city')}} />
         <form>
         Select a state:
-          <select id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
+          <select value={this.state.state} id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
           <option value=""></option>
           <option value="AL">Alabama</option>
         	<option value="AK">Alaska</option>
@@ -120,7 +123,7 @@ export default class App extends Component {
         searchFromMap={this.searchVenuesByMap.bind(this)}
       />
       <VenueGridContainer
-        searchedState={this.state.state}
+        searchedState={this.state.searchedState}
         searchedCity={this.state.searchedCity}
         venues={this.props.venueReducer}
         searchResults={this.state.searchResults}

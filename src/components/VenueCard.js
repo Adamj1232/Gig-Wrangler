@@ -2,18 +2,26 @@ import React from 'react';
 
 export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmail, bookingContact, PAStatus, venueComments}) => {
   const venueComment = (info, title) => {
-    if(info){
-    return (<h5>{title}: {info}</h5>)
+    if(title === 'Booking Email'){
+      console.log('email');
+      return (<a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top">E-Mail: {venueName}</a>)
+    } else if(info){
+      return (<h5>{title}: {info}</h5>)
   }}
 
   return (
     <article  className="venue-card">
       <h3>{venueName}</h3>
       <h4>{city}, {state}</h4>
-      <a target="_blank" href={url} className='website'>{url}</a>
+      <a
+        target="_blank"
+        href={url}
+        className='website'
+        rel="noopener noreferrer"
+      >{url}</a>
       {venueComment(bookingContact, 'Booking Contact')}
       {venueComment(bookingEmail, 'Booking Email')}
-      <h5>{venuePhone}</h5>
+      {venueComment(venuePhone, 'Venue Phone')}
       {venueComment(PAStatus, 'PA')}
       {venueComment(venueComments, 'Venue Comments')}
     </article>
