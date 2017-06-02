@@ -10,7 +10,7 @@ export default class VenueGrid extends Component {
     const searchLocation = () => {
       if(searchedCity && searchedState){
         console.log(searchedCity, searchedState);
-        return (<h3>{searchedCity}, {searchedState}</h3>)
+        return (`${searchedCity}, ${searchedState}`)
       } else if (searchedState){
         return searchedState
       } else if (searchedCity) {
