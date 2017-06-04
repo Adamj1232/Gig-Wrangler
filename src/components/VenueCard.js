@@ -7,16 +7,17 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
     return validate.test(email);
   }
 
-  const venueComment = (info, title) => {
+  const venueComment = (info, title, classTitle) => {
     if(title === 'Booking Email' && validateEmail(info)){
       return (
-        <div>
-        <h5>{info}</h5>
-        <a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top">Send Email to {venueName}</a>
+        <div className={classTitle}>
+          <h5>{info}</h5>
+          <a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top"
+          >Send Email to {venueName}</a>
         </div>
       )
     } else if(info && title !== 'Booking Email'){
-      return (<h5>{title}: {info}</h5>)
+      return (<h5 className={classTitle}>{title}: {info}</h5>)
   }}
 
   return (
@@ -29,11 +30,11 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
         className='website'
         rel="noopener noreferrer"
       >{url}</a>
-      {venueComment(bookingContact, 'Booking Contact')}
-      {venueComment(bookingEmail, 'Booking Email')}
-      {venueComment(venuePhone, 'Venue Phone')}
-      {venueComment(PAStatus, 'PA')}
-      {venueComment(venueComments, 'Venue Comments')}
+      {venueComment(bookingContact, 'Booking Contact', 'booking-contact')}
+      {venueComment(bookingEmail, 'Booking Email', 'booking-email')}
+      {venueComment(venuePhone, 'Venue Phone', 'venue-phone')}
+      {venueComment(PAStatus, 'PA', 'pa-status')}
+      {venueComment(venueComments, 'Venue Comments', 'venue-comments')}
     </article>
   )
 }

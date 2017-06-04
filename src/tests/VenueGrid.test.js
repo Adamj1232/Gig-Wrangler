@@ -7,7 +7,6 @@ import { COTestData } from './CO-test-data'
 
 
 describe('VenueGrid instantiation', () => {
-  // console.log(venueData);
   const wrapper = mount(
     <VenueGrid
       searchedState={''}
@@ -42,7 +41,6 @@ describe('VenueGrid instantiation', () => {
     expect(wrapper.find('#directions').text()).toEqual('Enter a location to search or click a marker on the map')
 
   })
-
 })
 
 describe('VenueGrid if searched in a city with no search results', () => {
@@ -69,7 +67,7 @@ describe('VenueGrid if searched in a city with no search results', () => {
   })
 
   it('should display headers for section with proper information for no search results passed in', () => {
-    // console.log(wrapper.node.props.searchedCity);
+
     expect(wrapper.find('h3').length).toBe(1);
 
     expect(wrapper.find('h3').props().id).toEqual('no-results')
@@ -176,7 +174,7 @@ describe('VenueGrid with search results passed in', () => {
   )
 
   it('should receive the expected properties',()=>{
-    // console.log(wrapper.debug());
+
     expect(wrapper.node.props).toEqual(
       { searchedState: '',
         searchedCity: 'Arvada',
@@ -188,16 +186,14 @@ describe('VenueGrid with search results passed in', () => {
   })
 
   it('should return the proper amount of venue cards per location searched as well as return a ui result', () => {
-    // console.log(wrapper.node.props.searchedCity);
+
     const venueCount = wrapper.node.props.searchResults.length
     const venueLocation = wrapper.node.props.searchedCity
-    // console.log(wrapper.debug());
 
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
     expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} music venues found in ${venueLocation}`)
-
   })
 
   it('should pass the proper info to each Venue card', () => {
@@ -310,7 +306,7 @@ describe('VenueGrid with search results passed in for city and state', () => {
   )
 
   it('should receive the expected properties',()=>{
-    // console.log(wrapper.debug());
+
     expect(wrapper.node.props).toEqual(
       { searchedState: 'CO',
         searchedCity: 'Arvada',
@@ -393,7 +389,6 @@ describe('VenueGrid with larger search results passed in for whole state', () =>
     expect(wrapper.find('.venue-card').first().text()).toBe('San Luis Valley Brewing Co.Alamosa, COhttp://slvbrewco.com/Booking Contact: Scott Graberscott@slvbrewco.comSend Email to San Luis Valley Brewing Co.Venue Phone: (719) 587-2337');
 
     expect(wrapper.find('.venue-card').last().text()).toBe("O'Bannon'sTelluride, CO");
-
   })
 
 })
