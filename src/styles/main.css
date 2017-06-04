@@ -11,6 +11,15 @@ body {
   color: white;
 }
 
+input {
+  margin: 10px;
+}
+
+button {
+  margin-left: 10px;
+  /*display: block;*/
+}
+
 #main h1 {
   padding: 20px;
   border-bottom: 1px solid #aaa;
@@ -21,6 +30,25 @@ body {
 
 #main {
   text-align: center;
+}
+
+#venue-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#venue-grid .results-display {
+  display: block;
+  width: 80%;
+  height: 60px;
+  font-size: 2em;
+  background-color: #032459;
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .venue-card {
@@ -48,6 +76,7 @@ body {
   width: 80%;
   height: 600px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #032459;
@@ -58,27 +87,8 @@ body {
   width: 90%;
 }
 
-#venue-grid {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
 .website {
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
-}
-
-#venue-grid .results-display {
-  display: block;
-  width: 80%;
-  height: 60px;
-  font-size: 2em;
-  background-color: #032459;
-  margin-top: 7px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
