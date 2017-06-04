@@ -9,7 +9,6 @@ export default class VenueGrid extends Component {
 
     const searchLocation = () => {
       if(searchedCity && searchedState){
-        console.log(searchedCity, searchedState);
         return (`${searchedCity}, ${searchedState}`)
       } else if (searchedState){
         return searchedState
@@ -20,15 +19,15 @@ export default class VenueGrid extends Component {
 
     if(searched === true && searchResults.length === 0){
       return(
-        <div>No music venues found in selected location</div>
+        <h3 id='no-results'>No music venues found in {searchedCity}</h3>
       )
     }
 
     if(searched === false){
       return (
         <section className='results-display'>
-          <h3>{venues.length} music venues found in the USA</h3>
-          <h3>Enter a location to search or click a marker on the map</h3>
+          <h3 id='search-results'>{venues.length} music venues found in the USA</h3>
+          <h3 id='directions'>Enter a location to search or click a marker on the map</h3>
         </section>
       )
     }

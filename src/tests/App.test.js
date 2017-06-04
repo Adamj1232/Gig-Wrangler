@@ -1,11 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
-import fetchMock from 'fetch-mock'
 import { shallow, mount } from 'enzyme'
-import { Provider } from 'react-redux';
-import sinon from 'sinon';
-
 
 
 describe('App instantiation', () => {
@@ -165,7 +161,6 @@ describe('App functionality', () => {
     expect(wrapper.state('searched')).toEqual(false)
 
     wrapper.instance().typeHandler(10, 'venuesPerCity');
-
     expect(wrapper.state('venuesPerCity')).toEqual(10);
 
     wrapper.instance().typeHandler(5, 'venuesPerCity');
