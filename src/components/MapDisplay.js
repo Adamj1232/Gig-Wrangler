@@ -16,7 +16,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
-  const mapDisplayClick = (filterAmount) => {
+  const mapDisplayClick = (filterAmount, e) => {
     mapPinFilter(
       venuesPerCity !== filterAmount ?  filterAmount :  0, 'venuesPerCity'
     )
@@ -44,8 +44,9 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   return (
     <div id='map-container'>
-    <button onClick={() => mapDisplayClick(5)}>Cities with 5+ Venues</button>
-    <button onClick={() => mapDisplayClick(10)}>Cities with 10+ Venues</button>
+    <button onClick={(e) => mapDisplayClick(0, e)}>All Cities with Venues</button>
+    <button onClick={(e) => mapDisplayClick(5, e)}>Cities with 5+ Venues</button>
+    <button onClick={(e) => mapDisplayClick(10, e)}>Cities with 10+ Venues</button>
     <GoogleMap
       zoom={zoomIndex}
       center={mapCenter}>
