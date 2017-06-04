@@ -143,11 +143,16 @@ describe('VenueCard instantiation and printing only available props and validati
 
     expect(wrapper.find('h3').length).toBe(1);
     expect(wrapper.find('h3').text()).toBe('Sweet Venue #3');
+
     expect(wrapper.find('article').props().className).toEqual('venue-card')
     expect(wrapper.find('h4').text()).toEqual('Omaha, NE')
+
     expect(wrapper.find('a').first().text()).toEqual('http://www.superSweetVenue.com/')
+
     expect(wrapper.find('h5').length).toEqual(2)
     expect(wrapper.find('h5').first().text()).toEqual('Booking Contact: Super Lame Promoter3')
+    expect(wrapper.find('h5').last().text()).toEqual('Venue Phone: (303) 999-9999')
+
     expect(wrapper.find('.venue-phone').text()).toEqual('Venue Phone: (303) 999-9999')
 
     expect(wrapper.find('.booking-email').length).toEqual(0)

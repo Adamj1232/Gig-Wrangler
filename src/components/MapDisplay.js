@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { venueCount } from '../helper-functions/venueLocationData'
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
@@ -57,3 +58,10 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 })
 
 export default MapDisplay
+
+MapDisplay.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  searchFromMap: PropTypes.func,
+  mapPinFilter: PropTypes.func.isRequired,
+  venuesPerCity: PropTypes.number.isRequired
+}
