@@ -12,7 +12,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
       return venueB.cityVenues.length - venueA.cityVenues.length
     })
-    zoomIndex = 7
+    zoomIndex = 8
     mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
