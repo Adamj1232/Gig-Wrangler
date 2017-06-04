@@ -14,19 +14,27 @@ export default class App extends Component {
       searchResults: [],
       searched: false,
       searchedCity: '',
-      searchedState: ''
+      searchedState: '',
+      venuesPerCity: 0
     }
   }
 
   typeHandler(e, stateType){
-    this.setState({
-      [stateType]: e.target.value
-    })
+    if(stateType === 'venuesPerCity'){
+      this.setState({
+        [stateType]: e
+      })
+    } else {
+      this.setState({
+        [stateType]: e.target.value
+      })
+    }
   }
 
   capsFirstLetter(string) {
     return string.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
+
 
   searchVenues(e, state, city){
     e.preventDefault()
@@ -61,7 +69,7 @@ export default class App extends Component {
               this.typeHandler(e, 'city')}}
           />
           Select a state:
-            <select value={this.state.state} id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
+          <select value={this.state.state} id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
             <option value=""></option>
             <option value="AL">Alabama</option>
           	<option value="AK">Alaska</option>
@@ -122,7 +130,9 @@ export default class App extends Component {
           containerElement={ <div className='containerElement'/> }
           venues={this.props.venueReducer}
           searchResults={this.state.searchResults}
+          venuesPerCity={this.state.venuesPerCity}
           searchFromMap={this.searchVenuesByMap.bind(this)}
+          mapPinFilter={this.typeHandler.bind(this)}
         />
         <VenueGridContainer
           searchedState={this.state.searchedState}

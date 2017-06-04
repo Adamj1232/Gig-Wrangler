@@ -3,7 +3,7 @@ import { venueCount } from '../helper-functions/venueLocationData'
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 
-const MapDisplay = withGoogleMap(({ searchResults, searchFromMap }) => {
+const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, venuesPerCity }) => {
 
   let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
@@ -16,18 +16,24 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap }) => {
     mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
+  const mapDisplayClick = (filterAmount) => {
+    mapPinFilter(
+      venuesPerCity !== filterAmount ?  filterAmount :  0, 'venuesPerCity'
+    )
+  }
+
   const venuePins = Object.keys(venueCount).map((location, index) => {
     const pin = Object.keys(venueCount[location]).map((city, i) => {
       let cityInfo = venueCount[location][city]
       let Latitude = cityInfo.lat
       let Longitude = cityInfo.long
-      if(Latitude !== '' && Longitude !== '' && typeof(Latitude) === 'number' && typeof(Longitude) === 'number'){
-      return <Marker
-                key={i}
-                position={{lat: Latitude , lng: Longitude}}
-                label={cityInfo.count.toString()}
-                onClick={() => searchFromMap(location, city)}
-              />
+      if(Latitude !== '' && Longitude !== '' && typeof(Latitude) === 'number' && typeof(Longitude) === 'number' && venuesPerCity < cityInfo.count){
+        return <Marker
+                  key={i}
+                  position={{lat: Latitude , lng: Longitude}}
+                  label={cityInfo.count.toString()}
+                  onClick={() => searchFromMap(location, city)}
+                />
       } else {
         return null
       }
@@ -35,15 +41,11 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap }) => {
     return pin
   })
 
-  // <InfoWindow onCloseClick={()=> clickInfoBox(claim)}>
-  //                   <div>
-  //                     <div>{sightings[claim].summary}</div>
-  //                     <a href={sightings[claim].url} target='_blank'>{'Read More'}</a>
-  //                 </div>
-  //                 </InfoWindow>
 
   return (
     <div id='map-container'>
+    <button onClick={() => mapDisplayClick(5)}>Cities with 5+ Venues</button>
+    <button onClick={() => mapDisplayClick(10)}>Cities with 10+ Venues</button>
     <GoogleMap
       zoom={zoomIndex}
       center={mapCenter}>
