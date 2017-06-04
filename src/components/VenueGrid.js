@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { VenueCard } from './VenueCard';
 
 export default class VenueGrid extends Component {
-
 
   render() {
     const { searchResults, searched, venues, searchedState, searchedCity } = this.props;
@@ -53,4 +53,12 @@ export default class VenueGrid extends Component {
       </section>
     )
   }
+}
+
+
+VenueGrid.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  venues: PropTypes.array.isRequired,
+  searchedState: PropTypes.string.isRequired,
+  searchedCity: PropTypes.string.isRequired
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { searchByState } from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
@@ -144,4 +145,9 @@ export default class App extends Component {
       </section>
     )
   }
+}
+
+
+App.propTypes = {
+  venueReducer: PropTypes.array
 }

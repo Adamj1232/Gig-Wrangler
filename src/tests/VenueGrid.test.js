@@ -29,8 +29,6 @@ describe('VenueGrid instantiation', () => {
   })
 
   it('should display headers for section with proper information for no search results passed in', () => {
-    // console.log(wrapper.debug());
-    // console.log(wrapper.find('h3').nodes[0]);
 
     expect(wrapper.find('h3').length).toBe(2);
 

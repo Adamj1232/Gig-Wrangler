@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmail, bookingContact, PAStatus, venueComments}) => {
 
@@ -39,10 +40,14 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
   )
 }
 
-// MovieCard.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   poster_path: PropTypes.string.isRequired,
-//   overview: PropTypes.string.isRequired,
-//   release_date: PropTypes.string.isRequired,
-//   vote_average: PropTypes.number.isRequired,
-// }
+VenueCard.propTypes = {
+  venueName: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  venuePhone: PropTypes.string.isRequired,
+  bookingEmail: PropTypes.string.isRequired,
+  bookingContact: PropTypes.string.isRequired,
+  PAStatus: PropTypes.string.isRequired,
+  venueComments: PropTypes.string.isRequired
+}
