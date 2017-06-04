@@ -39,12 +39,12 @@ export default class App extends Component {
   searchVenues(e, state, city){
     e.preventDefault()
     this.setState({
-      searchResults: searchByState(state, city),
-      searched: true,
-      city: '',
-      searchedCity: this.capsFirstLetter(city),
       state: '',
-      searchedState: state
+      city: '',
+      searched: true,
+      searchedState: state,
+      searchedCity: this.capsFirstLetter(city),
+      searchResults: searchByState(state, city)
     })
   }
 
