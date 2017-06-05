@@ -13,19 +13,85 @@ body {
 
 input {
   margin: 10px;
+  font-family: sans-serif;
+  height: 20px;
+  width: 27%;
+  font-size: 1.1em;
+  border-radius: 5px;
+  padding-left: 5px;
+  font-weight: 500;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 6px 8px -1px black;
 }
 
-button {
-  margin-left: 10px;
-  /*display: block;*/
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input:focus {
+  border: 3px white solid;
+}
+
+form button {
+  height: 26px;
+  width: 10%;
+  font-size: 1.1em;
+  display: block;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 6px 8px -1px black;
+  margin-top: 12px;
+}
+
+button:hover {
+  background-color: white;
+  padding-top: 0px;
+}
+
+select {
+  margin-left: 40px;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 6px 8px -1px black;
+}
+
+.input-holder {
+  width: 100%;
+}
+
+#map-container button {
+  height: 26px;
+  font-size: 1.1em;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 20px 9px -6px black;
+  margin: 30px 30px 0 0;
+}
+
+#selectedState {
+  height: 27px;
+  width: 27%;
+  font-size: 1.1em;
 }
 
 #main h1 {
-  padding: 20px;
+  font-family: 'Shrikhand', cursive;
+  padding: 0px;
+  font-size: 3em;
   border-bottom: 1px solid #aaa;
   color: white;
   font-weight: 100;
-  font-family: sans-serif;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  letter-spacing: 2px;
 }
 
 #main {
@@ -41,14 +107,22 @@ button {
 
 #venue-grid .results-display {
   display: block;
-  width: 80%;
+  width: 90%;
   height: 60px;
   font-size: 2em;
-  background-color: #032459;
+  background-color: rgba(18, 14, 14, 0.88);
   margin-top: 7px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.results-display {
+  font-size: 1.3em;
+}
+
+.results-display h3 {
+  margin-top: 10px;
 }
 
 .venue-card {
@@ -56,11 +130,16 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 300px;
-  width: 300px;
+  width: 320px;
   color: black;
   border: 1px solid white;
   margin: 15px 10px;
-  background: rgba(255, 255, 255, 0.6);
+  padding: 7px;
+  font-size: 1.3em;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 6px 8px -1px black;
 }
 
 .venue-card h5, h4, h3 {
@@ -68,26 +147,41 @@ button {
 }
 
 .venue-card h3, h5 {
-  margin-top: 10px;
+  margin-top: 0;
+}
+
+.venue-card h4 {
+  margin-top: 5px;
+  font-size: .85em;
+}
+
+.emailer {
+  font-size: .8em;
+}
+
+.pa-status {
+  font-size: .7em;
+  margin-top: 0;
 }
 
 .containerElement {
   margin: auto;
-  width: 80%;
-  height: 600px;
+  width: 90%;
+  height: 530px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #032459;
+  background-color: rgba(18, 14, 14, 0.89);
 }
 
 .mapElement {
-  height: 90%;
+  height: 80%;
   width: 90%;
 }
 
 .website {
+  font-size: .9em;
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;

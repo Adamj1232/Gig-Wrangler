@@ -13,29 +13,40 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
       return (
         <div className={classTitle}>
           <h5>{info}</h5>
-          <a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`} target="_top"
+          <a href={`mailto:${info}?Subject=Booking%20At%20${venueName}`}
+          target="_top"
+          className='emailer'
           >Send Email to {venueName}</a>
         </div>
       )
     } else if(info && title !== 'Booking Email'){
-      return (<h5 className={classTitle}>{title}: {info}</h5>)
-  }}
+      return (
+        <h5 className={classTitle}>{title}: {info}</h5>
+      )
+    }
+  }
 
   return (
     <article  className="venue-card">
-      <h3>{venueName}</h3>
-      <h4>{city}, {state}</h4>
-      <a
-        target="_blank"
-        href={url}
-        className='website'
-        rel="noopener noreferrer"
-      >{url}</a>
-      {venueComment(bookingContact, 'Booking Contact', 'booking-contact')}
-      {venueComment(bookingEmail, 'Booking Email', 'booking-email')}
-      {venueComment(venuePhone, 'Venue Phone', 'venue-phone')}
-      {venueComment(PAStatus, 'PA', 'pa-status')}
-      {venueComment(venueComments, 'Venue Comments', 'venue-comments')}
+      <div>
+        <h3>{venueName}</h3>
+        <h4>{city}, {state}</h4>
+      </div>
+      <div>
+        {venueComment(venueComments, 'Notes', 'venue-comments')}
+        {venueComment(PAStatus, 'On-Site Sound System', 'pa-status')}
+      </div>
+        {venueComment(bookingContact, 'Booking Contact', 'booking-contact')}
+        {venueComment(bookingEmail, 'Booking Email', 'booking-email')}
+      <div>
+        {venueComment(venuePhone, 'Venue Phone', 'venue-phone')}
+        <a
+          target="_blank"
+          href={url}
+          className='website'
+          rel="noopener noreferrer"
+        >{url}</a>
+      </div>
     </article>
   )
 }

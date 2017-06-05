@@ -62,16 +62,16 @@ export default class App extends Component {
       <section>
         <h1>GigWrangler</h1>
         <form>
+          <div className='input-holder'>
           <input
             type='text'
             value={this.state.city}
-            placeholder='please enter a city'
+            placeholder='Enter a City to Search'
             onChange={(e) => {
               this.typeHandler(e, 'city')}}
           />
-          Select a state:
           <select value={this.state.state} id='selectedState' onChange={(e) => { this.typeHandler(e, 'state')}}>
-            <option value=""></option>
+            <option value="">Choose a State to Search</option>
             <option value="AL">Alabama</option>
           	<option value="AK">Alaska</option>
           	<option value="AZ">Arizona</option>
@@ -124,7 +124,8 @@ export default class App extends Component {
           	<option value="WI">Wisconsin</option>
           	<option value="WY">Wyoming</option>
           </select>
-          <button onClick={(e)=> this.searchVenues(e, this.state.state, this.state.city)}> Submit </button>
+          </div>
+          <button onClick={(e)=> this.searchVenues(e, this.state.state, this.state.city)}> Search </button>
         </form>
         <MapContainer
           mapElement={ <div className='mapElement' /> }

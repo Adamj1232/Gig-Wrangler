@@ -26,15 +26,15 @@ export default class VenueGrid extends Component {
     if(searched === false){
       return (
         <section className='results-display'>
-          <h3 id='search-results'>{venues.length} music venues found in the USA</h3>
-          <h3 id='directions'>Enter a location to search or click a marker on the map</h3>
+          <h3 id='search-results'>{venues.length} Music Venues Found in the USA</h3>
+          <h3 id='directions'>Enter a City or State to Search or Click a Marker on the Map</h3>
         </section>
       )
     }
 
     return (
       <section id="venue-grid">
-      <h3 className='results-display'>{searchResults.length} music venues found in {searchLocation(searchedState, searchedCity)}</h3>
+      <h3 className='results-display'>{searchResults.length} Music Venues Found in {searchLocation(searchedState, searchedCity)}</h3>
         { searchResults.map( (venue, index) => {
           return (
             <VenueCard venueName={venue.NAME}
