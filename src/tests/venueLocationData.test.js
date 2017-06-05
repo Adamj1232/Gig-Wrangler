@@ -5,7 +5,7 @@ import { locationDataState } from '../complete-data/location-data-state'
 describe('venueLocationData Cleaner funtionality', () => {
   it('should return all venues that have a corresponding Lat, Long with data from locationDataState array which is geolocated', () => {
 
-    expect(venueLocationData.length).toEqual(3297)
+    expect(venueLocationData.length).toEqual(3295)
     expect(venueLocationData[0].Latitude).toEqual(locationDataState[0].Latitude)
     expect(venueLocationData[2].Latitude).toEqual(locationDataState[2].Latitude)
   })

@@ -31,11 +31,14 @@ describe('App instantiation', () => {
 
   it('should pass functional props to proper child elements',  () => {
 
-    expect(wrapper.props().children[1].props.children[0].props.onChange.length).toEqual(1)
-    expect(wrapper.props().children[1].props.children[2].props.onChange.length).toEqual(1)
-    expect(wrapper.props().children[1].props.children[3].props.onClick.length).toEqual(1)
+    expect(wrapper.props().children[1].props.children[0].props.children[0].props.onChange.length).toEqual(1)
+
+    expect(wrapper.props().children[1].props.children[1].props.onClick.length).toEqual(1)
+
     expect(wrapper.props().children[2].props.searchResults).toEqual([])
+
     expect(wrapper.props().children[2].props.searchFromMap.length).toEqual(2)
+
     expect(wrapper.props().children[3].props).toEqual({          searchedState: '',
       searchedCity: '',
       venues: undefined,
@@ -62,7 +65,7 @@ describe('App functionality', () => {
       preventDefault: () => {
       }
     });
-    expect(wrapper.state('searchResults').length).toEqual(3298);
+    expect(wrapper.state('searchResults').length).toEqual(3296);
     expect(wrapper.state('searchedCity')).toEqual('')
     expect(wrapper.state('city')).toEqual('');    expect(wrapper.state('searched')).toEqual(true)
 

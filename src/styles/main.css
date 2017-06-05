@@ -64,6 +64,11 @@ select {
   width: 100%;
 }
 
+.Logo {
+  height: 60px;
+  width: 60px;
+}
+
 #map-container button {
   height: 26px;
   font-size: 1.1em;
@@ -88,7 +93,7 @@ select {
   font-weight: 100;
   width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;;
   text-align: center;
   margin: auto;
   letter-spacing: 2px;

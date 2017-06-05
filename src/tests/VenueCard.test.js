@@ -42,14 +42,14 @@ describe('VenueCard instantiation and printing all props available', () => {
 
     expect(wrapper.find('h4').text()).toEqual(`Aspen, CO`)
 
-    expect(wrapper.find('a').first().text()).toEqual('http://www.superSweetVenue.com/')
-    expect(wrapper.find('a').last().text()).toEqual('Send Email to Sweet Venue #1')
+    expect(wrapper.find('a').first().text()).toEqual('Send Email to Sweet Venue #1')
+    expect(wrapper.find('a').last().text()).toEqual('http://www.superSweetVenue.com/')
 
     expect(wrapper.find('h5').length).toEqual(5)
-    expect(wrapper.find('h5').first().text()).toEqual('Booking Contact: Super Lame Promoter')
+    expect(wrapper.find('h5').first().text()).toEqual('Notes: usually nothin helpful')
     expect(wrapper.find('.venue-phone').text()).toEqual('Venue Phone: (303) 999-9999')
-    expect(wrapper.find('.pa-status').text()).toEqual('PA: pretty much never')
-    expect(wrapper.find('h5').last().text()).toEqual('Venue Comments: usually nothin helpful')
+    expect(wrapper.find('.pa-status').text()).toEqual('On-Site Sound System: pretty much never')
+    expect(wrapper.find('h5').last().text()).toEqual('Venue Phone: (303) 999-9999')
   })
 
   it('should render the email address correctly', () => {

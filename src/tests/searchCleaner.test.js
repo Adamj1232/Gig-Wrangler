@@ -4,7 +4,7 @@ import { searchByState } from '../search-functions/searchCleaner';
 describe('Search function tests', () => {
   it('should only return venues in the searched state', () => {
 
-    expect(searchByState('CO', '').length).toEqual(422)
+    expect(searchByState('CO', '').length).toEqual(420)
     expect(searchByState('CO', '')[400].State).toEqual('CO')
     expect(searchByState('CO', '')[0].State).toEqual('CO')
   })
@@ -14,9 +14,9 @@ describe('Search function tests', () => {
     expect(searchByState('Ca', '').length).toEqual(154)
     expect(searchByState('cA', '').length).toEqual(154)
     expect(searchByState('ca', '').length).toEqual(154)
-    expect(searchByState('Co', '').length).toEqual(422)
-    expect(searchByState('cO', '').length).toEqual(422)
-    expect(searchByState('co', '').length).toEqual(422)
+    expect(searchByState('Co', '').length).toEqual(420)
+    expect(searchByState('cO', '').length).toEqual(420)
+    expect(searchByState('co', '').length).toEqual(420)
   })
 
   it('should only return venues in the searched city', () => {
@@ -31,9 +31,9 @@ describe('Search function tests', () => {
     expect(searchByState('', 'naSHvIlLe').length).toEqual(47)
     expect(searchByState('', 'nashVILLE').length).toEqual(47)
     expect(searchByState('', 'NashVilLE').length).toEqual(47)
-    expect(searchByState('', 'dEnVer').length).toEqual(76)
-    expect(searchByState('', 'DENVER').length).toEqual(76)
-    expect(searchByState('', 'DeNVer').length).toEqual(76)
+    expect(searchByState('', 'dEnVer').length).toEqual(74)
+    expect(searchByState('', 'DENVER').length).toEqual(74)
+    expect(searchByState('', 'DeNVer').length).toEqual(74)
 
   })
 

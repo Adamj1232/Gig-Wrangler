@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { searchByState } from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
 import MapContainer from '../containers/MapContainer'
+import Logo from '../styles/images/Guitar-Silhouette-Design.png'
 
 
 
@@ -60,7 +61,11 @@ export default class App extends Component {
   render() {
     return (
       <section>
-        <h1>GigWrangler</h1>
+        <h1>
+          <img src={Logo} alt="Guitar Spiral" className='Logo'/>
+            GigWrangler
+          <img src={Logo} alt="Guitar Spiral" className='Logo'/>
+        </h1>
         <form>
           <div className='input-holder'>
           <input
