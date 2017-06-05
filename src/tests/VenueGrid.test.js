@@ -34,9 +34,9 @@ describe('VenueGrid instantiation', () => {
 
     expect(wrapper.find('section').props().className).toEqual('results-display')
 
-    expect(wrapper.find('.results-display').text()).toEqual('3298 music venues found in the USAEnter a location to search or click a marker on the map')
-    expect(wrapper.find('#search-results').text()).toEqual('3298 music venues found in the USA')
-    expect(wrapper.find('#directions').text()).toEqual('Enter a location to search or click a marker on the map')
+    expect(wrapper.find('.results-display').text()).toEqual('3296 Music Venues Found in the USAEnter a City or State to Search or Click a Marker on the Map')
+    expect(wrapper.find('#search-results').text()).toEqual('3296 Music Venues Found in the USA')
+    expect(wrapper.find('#directions').text()).toEqual('Enter a City or State to Search or Click a Marker on the Map')
 
   })
 })
@@ -191,7 +191,7 @@ describe('VenueGrid with search results passed in', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} music venues found in ${venueLocation}`)
+    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} Music Venues Found in ${venueLocation}`)
   })
 
   it('should pass the proper info to each Venue card', () => {
@@ -201,9 +201,9 @@ describe('VenueGrid with search results passed in', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COhttp://www.rockabilliesbar.comBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799PA: yes');
+    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: yesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
 
-    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COhttp://www.OdysseyBeerwerks.comBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799PA: yes');
+    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: yesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
 
   })
 })
@@ -323,7 +323,7 @@ describe('VenueGrid with search results passed in for city and state', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} music venues found in ${venueCityLocation}, ${venueStateLocation}`)
+    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} Music Venues Found in ${venueCityLocation}, ${venueStateLocation}`)
 
   })
 
@@ -334,9 +334,9 @@ describe('VenueGrid with search results passed in for city and state', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COhttp://www.rockabilliesbar.comBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799PA: yes');
+    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: yesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
 
-    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COhttp://www.OdysseyBeerwerks.comBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799PA: yes');
+    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: yesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
 
   })
 })
@@ -373,7 +373,7 @@ describe('VenueGrid with larger search results passed in for whole state', () =>
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(422);
 
-    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} music venues found in ${venueLocationState}`)
+    expect(wrapper.find('.results-display').text()).toEqual(`${venueCount} Music Venues Found in ${venueLocationState}`)
 
   })
 
@@ -384,7 +384,7 @@ describe('VenueGrid with larger search results passed in for whole state', () =>
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(422);
 
-    expect(wrapper.find('.venue-card').first().text()).toBe('San Luis Valley Brewing Co.Alamosa, COhttp://slvbrewco.com/Booking Contact: Scott Graberscott@slvbrewco.comSend Email to San Luis Valley Brewing Co.Venue Phone: (719) 587-2337');
+    expect(wrapper.find('.venue-card').first().text()).toBe('San Luis Valley Brewing Co.Alamosa, COBooking Contact: Scott Graberscott@slvbrewco.comSend Email to San Luis Valley Brewing Co.Venue Phone: (719) 587-2337http://slvbrewco.com/');
 
     expect(wrapper.find('.venue-card').last().text()).toBe("O'Bannon'sTelluride, CO");
   })
