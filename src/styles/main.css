@@ -67,7 +67,14 @@ select {
 .Logo {
   height: 60px;
   width: 60px;
+  -webkit-animation:spin 3.5s linear infinite;
+  -moz-animation:spin 3.5s linear infinite;
+  animation:spin 3.5s linear;
 }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #map-container button {
   height: 26px;
@@ -122,6 +129,18 @@ select {
   justify-content: center;
 }
 
+#no-results {
+  font-size: 2.1em;
+  margin-top: 15px;
+  animation: blinker 1s linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes blinker {
+  50% { opacity: .2; }
+}
+
+
 .results-display {
   font-size: 1.3em;
 }
@@ -131,6 +150,9 @@ select {
 }
 
 .venue-card {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -190,4 +212,5 @@ select {
   white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
+  display: block;
 }
