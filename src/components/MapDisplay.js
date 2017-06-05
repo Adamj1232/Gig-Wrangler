@@ -8,6 +8,19 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
+  var buttonTitle5 = 'Cities with 5+ Venues'
+  var buttonTitle10 = 'Cities with 10+ Venues'
+
+  if(venuesPerCity === 0){
+    buttonTitle5 = 'Cities with 5+ Venues'
+    buttonTitle10 = 'Cities with 10+ Venues'
+  } else if (venuesPerCity === 5){
+    buttonTitle5 = 'All Cities with Venues'
+    buttonTitle10 = 'Cities with 10+ Venues'
+  } else {
+    buttonTitle5 = 'Cities with 5+ Venues'
+    buttonTitle10 = 'All Cities with Venues'
+  }
 
   if( searchResults.length !== 0){
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
@@ -45,21 +58,20 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   return (
     <div id='map-container'>
-    <button onClick={(e) => mapDisplayClick(0, e)}>All Cities with Venues</button>
-    <button onClick={(e) => mapDisplayClick(5, e)}>Cities with 5+ Venues</button>
-    <button onClick={(e) => mapDisplayClick(10, e)}>Cities with 10+ Venues</button>
-    <GoogleMap
-      zoom={zoomIndex}
-      center={mapCenter}>
-      {venuePins}
-    </GoogleMap>
-  </div>
+      <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
+      <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
+      <GoogleMap
+        zoom={zoomIndex}
+        center={mapCenter}>
+        {venuePins}
+      </GoogleMap>
+    </div>
   )
 })
 
 export default MapDisplay
 
-MapDisplay.propTypes = {
+MapDisplay.PropTypes = {
   searchResults: PropTypes.array.isRequired,
   searchFromMap: PropTypes.func,
   mapPinFilter: PropTypes.func.isRequired,
