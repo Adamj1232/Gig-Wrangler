@@ -1,7 +1,8 @@
 {
-  "name": "gig-wrangler",
-  "version": "0.1.0",
-  "private": true,
+  "name": "GigWrangler",
+  "version": "1.0.0",
+  "description": "Musician Venue Connecting App in React/Redux",
+  "main": "index.js",
   "dependencies": {
     "enzyme": "^2.8.2",
     "fetch-mock": "^5.11.0",
@@ -29,6 +30,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://adamj1232.github.io/Gig-Wrangler/"
+  },
+  "author": "Adam Carpenter",
+  "homepage": "https://github.com/Adamj1232/Gig-Wrangler"
 }
