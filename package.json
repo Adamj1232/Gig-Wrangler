@@ -23,6 +23,7 @@
     "chai-enzyme": "^0.7.1",
     "enzyme": "^2.8.2",
     "fetch-mock": "^5.10.0",
+    "gh-pages": "^1.0.0",
     "react-addons-test-utils": "^15.5.1",
     "react-scripts": "1.0.5"
   },
@@ -35,9 +36,9 @@
     "deploy": "gh-pages -d build"
   },
   "repository": {
-  "type": "git",
-  "url": "https://adamj1232.github.io/Gig-Wrangler/"
+    "type": "git",
+    "url": "https://adamj1232.github.io/Gig-Wrangler/"
   },
   "author": "Adam Carpenter",
-  "homepage": "https://github.com/Adamj1232/Gig-Wrangler"
+  "homepage": "https://adamj1232.github.io/Gig-Wrangler/"
 }
