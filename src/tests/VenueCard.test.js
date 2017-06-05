@@ -48,7 +48,7 @@ describe('VenueCard instantiation and printing all props available', () => {
     expect(wrapper.find('h5').length).toEqual(5)
     expect(wrapper.find('h5').first().text()).toEqual('Notes: usually nothin helpful')
     expect(wrapper.find('.venue-phone').text()).toEqual('Venue Phone: (303) 999-9999')
-    expect(wrapper.find('.pa-status').text()).toEqual('On-Site Sound System: pretty much never')
+    expect(wrapper.find('.pa-status').text()).toEqual('On-Site Sound System: Pretty much never')
     expect(wrapper.find('h5').last().text()).toEqual('Venue Phone: (303) 999-9999')
   })
 

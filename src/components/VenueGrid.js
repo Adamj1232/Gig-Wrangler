@@ -19,7 +19,7 @@ export default class VenueGrid extends Component {
 
     if(searched === true && searchResults.length === 0){
       return(
-        <h2 id='no-results'>No music venues found in {searchedCity}</h2>
+        <h2 id='no-results'>No Music Venues Found in {searchedCity}</h2>
       )
     }
 

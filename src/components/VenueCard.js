@@ -8,6 +8,10 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
     return validate.test(email);
   }
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const venueComment = (info, title, classTitle) => {
     if(title === 'Booking Email' && validateEmail(info)){
       return (
@@ -20,7 +24,11 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
         </div>
       )
     } else if(info && title !== 'Booking Email'){
-      return (
+      return classTitle==='pa-status' ?
+      (
+        <h5 className={classTitle}>{title}: {capitalizeFirstLetter(info)}</h5>
+      ) :
+      (
         <h5 className={classTitle}>{title}: {info}</h5>
       )
     }
