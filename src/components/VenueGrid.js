@@ -19,7 +19,7 @@ export default class VenueGrid extends Component {
 
     if(searched === true && searchResults.length === 0){
       return(
-        <h3 id='no-results'>No music venues found in {searchedCity}</h3>
+        <h2 id='no-results'>No music venues found in {searchedCity}</h2>
       )
     }
 
@@ -33,7 +33,7 @@ export default class VenueGrid extends Component {
     }
 
     return (
-      <section id="venue-grid">
+      <section id="venue-grid" name ='venue-grid'>
       <h3 className='results-display'>{searchResults.length} Music Venues Found in {searchLocation(searchedState, searchedCity)}</h3>
         { searchResults.map( (venue, index) => {
           return (
