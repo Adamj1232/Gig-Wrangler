@@ -63,6 +63,11 @@ export default class App extends Component {
       searched: true,
       searchedCity: city
     })
+    return Scroll.scroller.scrollTo('containerElement', {
+      duration: 1000,
+      delay: 150,
+      smooth: true
+    })
   }
 
   render() {
