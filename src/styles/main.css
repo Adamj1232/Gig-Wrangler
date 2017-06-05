@@ -51,6 +51,7 @@ form button {
 button:hover {
   background-color: white;
   padding-top: 0px;
+  cursor: pointer;
 }
 
 select {

@@ -66,11 +66,11 @@ describe('VenueGrid if searched in a city with no search results', () => {
 
   it('should display headers for section with proper information for no search results passed in', () => {
 
-    expect(wrapper.find('h3').length).toBe(1);
+    expect(wrapper.find('h2').length).toBe(1);
 
-    expect(wrapper.find('h3').props().id).toEqual('no-results')
+    expect(wrapper.find('h2').props().id).toEqual('no-results')
 
-    expect(wrapper.find('#no-results').text()).toEqual(`No music venues found in ${wrapper.node.props.searchedCity}`)
+    expect(wrapper.find('#no-results').text()).toEqual(`No Music Venues Found in ${wrapper.node.props.searchedCity}`)
 
   })
 
@@ -201,9 +201,9 @@ describe('VenueGrid with search results passed in', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: yesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
+    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: YesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
 
-    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: yesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
+    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: YesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
 
   })
 })
@@ -334,9 +334,9 @@ describe('VenueGrid with search results passed in for city and state', () => {
     expect(wrapper.find('section').length).toBe(1);
     expect(wrapper.find('.venue-card').length).toBe(4);
 
-    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: yesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
+    expect(wrapper.find('.venue-card').first().text()).toBe('Rock-A-BilliesArvada, COOn-Site Sound System: YesBooking Contact: Jimmy Niggjimmy@rockabilliesbar.comSend Email to Rock-A-BilliesVenue Phone: (303) 421-1799http://www.rockabilliesbar.com');
 
-    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: yesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
+    expect(wrapper.find('.venue-card').last().text()).toBe('Odyssey BeerwerksArvada, COOn-Site Sound System: YesBooking Contact: Odyssey Beerwerks Contactjimmy@rockabilliesbar.comSend Email to Odyssey BeerwerksVenue Phone: (303) 421-1799http://www.OdysseyBeerwerks.com');
 
   })
 })
