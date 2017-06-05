@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
 import { searchByState } from '../search-functions/searchCleaner'
 import VenueGridContainer from '../containers/VenueGridContainer'
 import MapContainer from '../containers/MapContainer'
@@ -47,6 +48,12 @@ export default class App extends Component {
       searchedState: state,
       searchedCity: this.capsFirstLetter(city),
       searchResults: searchByState(state, city)
+    })
+
+    return Scroll.scroller.scrollTo('containerElement', {
+      duration: 1000,
+      delay: 150,
+      smooth: true
     })
   }
 
@@ -130,11 +137,11 @@ export default class App extends Component {
           	<option value="WY">Wyoming</option>
           </select>
           </div>
-          <button onClick={(e)=> this.searchVenues(e, this.state.state, this.state.city)}> Search </button>
+          <button id='button' onClick={(e)=> this.searchVenues(e, this.state.state, this.state.city)}> Search </button>
         </form>
         <MapContainer
           mapElement={ <div className='mapElement' /> }
-          containerElement={ <div className='containerElement'/> }
+          containerElement={ <div className='containerElement' id='containerElement'/> }
           venues={this.props.venueReducer}
           searchResults={this.state.searchResults}
           venuesPerCity={this.state.venuesPerCity}
