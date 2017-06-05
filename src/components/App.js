@@ -62,9 +62,9 @@ export default class App extends Component {
     return (
       <section>
         <h1>
-          <img src={Logo} alt="Guitar Spiral" className='Logo'/>
+          <img src={Logo} alt={"Acoustic Guitar Spiral Logo"} className='Logo'/>
             GigWrangler
-          <img src={Logo} alt="Guitar Spiral" className='Logo'/>
+          <img src={Logo} alt={"Acoustic Guitar Spiral Logo"} className='Logo'/>
         </h1>
         <form>
           <div className='input-holder'>
