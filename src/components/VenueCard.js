@@ -3,17 +3,28 @@ import PropTypes from 'prop-types';
 
 export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmail, bookingContact, PAStatus, venueComments}) => {
 
-  function validateEmail(email) {
+  const validateEmail = (email) => {
     const validate = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return validate.test(email);
-  }
+  };
+
+  const isUrlValid = (Url) => {
+    const results = Url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/g);
+    if(results == null){
+      return false;
+    } else {
+      return true;
+    }
+  };
+
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  };
+
 
   const venueComment = (info, title, classTitle) => {
-    if(title === 'Booking Email' && validateEmail(info)){
+    if( title === 'Booking Email' && validateEmail(info)){
       return (
         <div className={classTitle}>
           <h5>{info}</h5>
@@ -22,8 +33,25 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
           className='emailer'
           >Send Email to {venueName}</a>
         </div>
-      )
-    } else if(info && title !== 'Booking Email'){
+      );
+    } else if (classTitle === 'website'){
+      return  info !== '' && isUrlValid(info) === true
+        ?
+        <a
+          target="_blank"
+          href={url}
+          className={classTitle}
+          rel="noopener noreferrer"
+        >{url}</a>
+        :
+        <a
+          target='_blank'
+          rel="noopener noreferrer"
+          className={classTitle}
+          href={`http://www.google.com/search?q=${venueName}+${city}+${state}`}
+        >Search Results For This Venue</a>
+
+    } else if (info && title !== 'Booking Email'){
       return classTitle==='pa-status' ?
       (
         <h5 className={classTitle}>{title}: {capitalizeFirstLetter(info)}</h5>
@@ -31,8 +59,9 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
       (
         <h5 className={classTitle}>{title}: {info}</h5>
       )
-    }
-  }
+    };
+  };
+
 
   return (
     <article  className="venue-card">
@@ -48,16 +77,11 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
         {venueComment(bookingEmail, 'Booking Email', 'booking-email')}
       <div>
         {venueComment(venuePhone, 'Venue Phone', 'venue-phone')}
-        <a
-          target="_blank"
-          href={url}
-          className='website'
-          rel="noopener noreferrer"
-        >{url}</a>
+        {venueComment(url, null, 'website')}
       </div>
     </article>
-  )
-}
+  );
+};
 
 VenueCard.propTypes = {
   venueName: PropTypes.string.isRequired,
@@ -69,4 +93,4 @@ VenueCard.propTypes = {
   bookingContact: PropTypes.string.isRequired,
   PAStatus: PropTypes.string.isRequired,
   venueComments: PropTypes.string.isRequired
-}
+};
