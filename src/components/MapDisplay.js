@@ -9,13 +9,13 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
   let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
   let cluster = true
-  let buttonTitle0 = 'All Cities with Venues'
+  let buttonTitle1 = 'All Cities with Venues'
   let buttonTitle5 = 'Cities with 5+ Venues'
   let buttonTitle10 = 'Cities with 10+ Venues'
 
 
   if (venuesPerCity === 1){
-    buttonTitle0 = 'Show All Cities'
+    buttonTitle1 = 'Show All Cities'
     cluster = false
   } else if (venuesPerCity === 5){
     buttonTitle5 = 'All Cities'
@@ -29,7 +29,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
       return venueB.cityVenues.length - venueA.cityVenues.length
     })
-    zoomIndex = 7
+    zoomIndex = 8
     mapCenter = { lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
@@ -64,7 +64,8 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     <MarkerClusterer
       averageCenter
       enableRetinaIcons
-      gridSize={30}
+      gridSize={25}
+      maxZoom={7}
       >
         {venuePins}
     </MarkerClusterer>
@@ -73,14 +74,14 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   return (
     <div id='map-container'>
-      <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle0}</button>
+      <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
       <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
       <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
       <GoogleMap
         zoom={zoomIndex}
         center={mapCenter}
       >
-        {(cluster === true) ? clusterer : venuePins}
+        {cluster ? clusterer : venuePins}
       </GoogleMap>
     </div>
   )
