@@ -46,6 +46,7 @@ form button {
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 6px 8px -1px black;
   margin-top: 15px;
+  min-width: 60px;
 }
 
 button:hover {
