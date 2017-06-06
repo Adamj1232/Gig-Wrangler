@@ -2,35 +2,40 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { venueCount } from '../helper-functions/venueLocationData'
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-
+import MarkerClusterer from 'react-google-maps/lib/addons/MarkerClusterer';
 
 const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, venuesPerCity }) => {
 
   let mapCenter = { lat: 40 , lng: -97 }
   let zoomIndex = 4
-  var buttonTitle5 = 'Cities with 5+ Venues'
-  var buttonTitle10 = 'Cities with 10+ Venues'
+  let cluster = true
+  let buttonTitle0 = 'All Cities with Venues'
+  let buttonTitle5 = 'Cities with 5+ Venues'
+  let buttonTitle10 = 'Cities with 10+ Venues'
 
-  if(venuesPerCity === 0){
-    buttonTitle5 = 'Cities with 5+ Venues'
-    buttonTitle10 = 'Cities with 10+ Venues'
+
+  if (venuesPerCity === 1){
+    buttonTitle0 = 'Show All Cities'
+    cluster = false
   } else if (venuesPerCity === 5){
-    buttonTitle5 = 'All Cities with Venues'
-    buttonTitle10 = 'Cities with 10+ Venues'
-  } else {
-    buttonTitle5 = 'Cities with 5+ Venues'
-    buttonTitle10 = 'All Cities with Venues'
+    buttonTitle5 = 'All Cities'
+    cluster = false
+  } else if (venuesPerCity === 10){
+    buttonTitle10 = 'All Cities'
+    cluster = false
   }
 
   if( searchResults.length !== 0){
     const sortedSearch = searchResults.sort( (venueA, venueB) => {
       return venueB.cityVenues.length - venueA.cityVenues.length
     })
-    zoomIndex = 8
-    mapCenter = {lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
+    zoomIndex = 7
+    mapCenter = { lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
   };
 
+
   const mapDisplayClick = (filterAmount, e) => {
+    cluster = false
     mapPinFilter(
       venuesPerCity !== filterAmount ?  filterAmount :  0, 'venuesPerCity'
     )
@@ -55,15 +60,28 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     return pin
   })
 
+  const clusterer = <MarkerClusterer
+                      averageCenter
+                      enableRetinaIcons
+                      gridSize={30}
+                      >
+                        {venuePins}
+                    </MarkerClusterer>
+
+
+  const markerClustering = cluster === true ? clusterer : venuePins
+
 
   return (
     <div id='map-container'>
+      <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle0}</button>
       <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
       <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
       <GoogleMap
         zoom={zoomIndex}
-        center={mapCenter}>
-        {venuePins}
+        center={mapCenter}
+      >
+        {markerClustering}
       </GoogleMap>
     </div>
   )
