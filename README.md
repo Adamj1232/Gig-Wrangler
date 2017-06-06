@@ -11,7 +11,7 @@ This project is currently in the later stages of development and can be tested t
 ## Project Screen Shot(s)
 
 The app in use:
-* ![GIF of app in use](http://g.recordit.co/OjJVfQe1mI.gif)
+* ![GIF of app in use](http://g.recordit.co/FRuTKd3PjF.gif)
 
 ## Installation and Setup Instructions
 
