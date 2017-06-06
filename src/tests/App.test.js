@@ -39,11 +39,13 @@ describe('App instantiation', () => {
 
     expect(wrapper.props().children[2].props.searchFromMap.length).toEqual(2)
 
-    expect(wrapper.props().children[3].props).toEqual({          searchedState: '',
+    expect(wrapper.props().children[3].props).toEqual({
+      searchedState: '',
       searchedCity: '',
       venues: undefined,
       searchResults: [],
-      searched: false })
+      searched: false
+    })
   })
 })
 
