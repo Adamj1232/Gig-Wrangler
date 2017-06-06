@@ -30,7 +30,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
       return venueB.cityVenues.length - venueA.cityVenues.length
     })
     zoomIndex = 8
-    mapCenter = { lat:sortedSearch[0].Latitude , lng: sortedSearch[0].Longitude }
+    mapCenter = { lat:sortedSearch[0].Latitude , lng:sortedSearch[0].Longitude }
   };
 
 
