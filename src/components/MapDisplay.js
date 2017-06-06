@@ -60,16 +60,15 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     return pin
   })
 
-  const clusterer = <MarkerClusterer
-                      averageCenter
-                      enableRetinaIcons
-                      gridSize={30}
-                      >
-                        {venuePins}
-                    </MarkerClusterer>
-
-
-  const markerClustering = cluster === true ? clusterer : venuePins
+  const clusterer = (
+    <MarkerClusterer
+      averageCenter
+      enableRetinaIcons
+      gridSize={30}
+      >
+        {venuePins}
+    </MarkerClusterer>
+  );
 
 
   return (
@@ -81,7 +80,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
         zoom={zoomIndex}
         center={mapCenter}
       >
-        {markerClustering}
+        {(cluster === true) ? clusterer : venuePins}
       </GoogleMap>
     </div>
   )
