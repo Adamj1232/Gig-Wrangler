@@ -71,9 +71,13 @@ export default class App extends Component {
     });
   }
 
-  statesArray = Object.keys(stateArray).map( (state, index) => {
-    return( <option value={state} key={index}> {stateArray[state]} </option> )
-  })
+  printStateArray() {
+    return Object.keys(stateArray).map( (state, index) => {
+      return (
+        <option value={state} key={index}> {stateArray[state]} </option>
+      )
+    })
+  }
 
   render() {
     return (
@@ -99,7 +103,7 @@ export default class App extends Component {
               id='selectedState'
               onChange={(e) => { this.typeHandler(e, 'state')}}
             >
-              {this.statesArray}
+              {this.printStateArray()}
             </select>
           </div>
           <button
