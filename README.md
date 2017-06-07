@@ -14,7 +14,6 @@ The app in use:
 * ![GIF of app in use](http://g.recordit.co/FRuTKd3PjF.gif)
 * ![GIF of app in use](http://g.recordit.co/0xTG7CPthF.gif)
 
-
 ## Installation and Setup Instructions
 
 `git clone, npm install, npm start`
