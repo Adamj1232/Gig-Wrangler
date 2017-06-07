@@ -67,7 +67,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
     <MarkerClusterer
       averageCenter
       enableRetinaIcons
-      gridSize={25}
+      gridSize={28}
       maxZoom={7}
       >
         {venuePins}
@@ -77,6 +77,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   return (
     <section id='map-container'>
+
       <div className='legend'>
         <div className='legend-div'>
           <img
@@ -95,11 +96,13 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
           <p> - Number of Cities Clustered with Atleast 1 Venue</p>
         </div>
       </div>
+
       <div className='mapButtons'>
         <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
         <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
         <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
       </div>
+
       <GoogleMap
         zoom={zoomIndex}
         center={mapCenter}
@@ -107,6 +110,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
       >
         {cluster ? clusterer : venuePins}
       </GoogleMap>
+
     </section>
   )
 })
