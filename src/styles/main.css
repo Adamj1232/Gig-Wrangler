@@ -84,7 +84,6 @@ select {
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 20px 9px -6px black;
-  margin: 15px;
 }
 
 #selectedState {
@@ -202,6 +201,12 @@ select {
   background-color: rgba(18, 14, 14, 0.89);
 }
 
+.mapButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 15px;
+}
+
 .mapElement {
   height: 75%;
   width: 90%;
@@ -222,7 +227,6 @@ select {
   align-items: center;
   margin: 25px 0 5px;
   background-color: rgba(112, 128, 144, 0.5);
-  width: 100%;
 }
 
 .legend-div {

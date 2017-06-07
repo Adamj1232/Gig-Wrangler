@@ -131,7 +131,6 @@ export default class App extends Component {
           searchResults={this.state.searchResults}
           searched={this.state.searched}
         />
-
       </section>
     )
   }

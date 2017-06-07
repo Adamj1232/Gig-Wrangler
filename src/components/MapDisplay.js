@@ -76,7 +76,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
 
   return (
-    <div id='map-container'>
+    <section id='map-container'>
       <div className='legend'>
         <div className='legend-div'>
           <img
@@ -95,9 +95,11 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
           <p> - Number of Cities Clustered with Atleast 1 Venue</p>
         </div>
       </div>
-      <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
-      <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
-      <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
+      <div className='mapButtons'>
+        <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
+        <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
+        <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
+      </div>
       <GoogleMap
         zoom={zoomIndex}
         center={mapCenter}
@@ -105,7 +107,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
       >
         {cluster ? clusterer : venuePins}
       </GoogleMap>
-    </div>
+    </section>
   )
 })
 
