@@ -152,8 +152,6 @@ select {
 }
 
 .venue-card {
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   display: flex;
   flex-direction: column;

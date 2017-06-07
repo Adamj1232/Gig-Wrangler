@@ -80,6 +80,7 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
       <GoogleMap
         zoom={zoomIndex}
         center={mapCenter}
+        options={{scrollwheel: false}}
       >
         {cluster ? clusterer : venuePins}
       </GoogleMap>
