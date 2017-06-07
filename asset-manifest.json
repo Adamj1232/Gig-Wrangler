@@ -1,8 +1,10 @@
 {
-  "main.css": "static/css/main.fdf43f57.css",
-  "main.css.map": "static/css/main.fdf43f57.css.map",
-  "main.js": "static/js/main.24a64a9f.js",
-  "main.js.map": "static/js/main.24a64a9f.js.map",
+  "main.css": "static/css/main.4968da28.css",
+  "main.css.map": "static/css/main.4968da28.css.map",
+  "main.js": "static/js/main.78a36ed0.js",
+  "main.js.map": "static/js/main.78a36ed0.js.map",
   "static/media/ConcertCrowd.jpg": "static/media/ConcertCrowd.34ce9b7c.jpg",
-  "static/media/Guitar-Silhouette-Design.png": "static/media/Guitar-Silhouette-Design.1366dfc0.png"
+  "static/media/Guitar-Silhouette-Design.png": "static/media/Guitar-Silhouette-Design.1366dfc0.png",
+  "static/media/m3.png": "static/media/m3.2cddbca4.png",
+  "static/media/map-marker.png": "static/media/map-marker.6872bf0b.png"
 }
