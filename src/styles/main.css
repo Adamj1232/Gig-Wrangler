@@ -69,14 +69,14 @@ select {
 .Logo {
   height: 60px;
   width: 60px;
-  -webkit-animation:spin 3.5s linear infinite;
-  -moz-animation:spin 3.5s linear infinite;
-  animation:spin 3.5s linear;
+  -webkit-animation:spin 1.5s linear;
+  -moz-animation:spin 1.5s linear;
+  animation:spin 1.5s linear;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(200deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(200deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(200deg); transform:rotate(200deg); } }
 
 #map-container button {
   height: 26px;
@@ -84,7 +84,7 @@ select {
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 20px 9px -6px black;
-  margin: 25px 30px 0 0;
+  margin: 15px;
 }
 
 #selectedState {
@@ -142,7 +142,6 @@ select {
   50% { opacity: .2; }
 }
 
-
 .results-display {
   font-size: 1.3em;
 }
@@ -192,25 +191,59 @@ select {
 }
 
 .containerElement {
-  margin: auto;
-  width: 90%;
-  height: 530px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  padding-top: 15px;
+  width: 90%;
+  height: 530px;
   background-color: rgba(18, 14, 14, 0.89);
 }
 
 .mapElement {
-  height: 80%;
+  height: 75%;
   width: 90%;
 }
 
 .website {
-  font-size: .9em;
-  white-space: nowrap;
   overflow: hidden !important;
   text-overflow: ellipsis;
+  white-space: nowrap;
   display: block;
+  font-size: .9em;
+}
+
+.legend {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 25px 0 5px;
+  background-color: rgba(112, 128, 144, 0.5);
+  width: 100%;
+}
+
+.legend-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legend p {
+  display: inline-block;
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+.marker {
+  height: 27px;
+  width: 15px;
+  margin: 2.5px 5px 0 0;
+}
+
+.cluster {
+  height: 35px;
+  width: 35px;
 }
