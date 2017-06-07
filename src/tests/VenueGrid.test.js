@@ -386,7 +386,7 @@ describe('VenueGrid with larger search results passed in for whole state', () =>
 
     expect(wrapper.find('.venue-card').first().text()).toBe('San Luis Valley Brewing Co.Alamosa, COBooking Contact: Scott Graberscott@slvbrewco.comSend Email to San Luis Valley Brewing Co.Venue Phone: (719) 587-2337http://slvbrewco.com/');
 
-    expect(wrapper.find('.venue-card').last().text()).toBe("O'Bannon'sTelluride, CO");
+    expect(wrapper.find('.venue-card').last().text()).toBe("O'Bannon'sTelluride, COSearch Results For O'Bannon's");
   })
 
 })

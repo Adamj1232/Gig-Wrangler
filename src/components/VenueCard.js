@@ -49,7 +49,7 @@ export const VenueCard = ({ venueName, state, city, url, venuePhone, bookingEmai
           rel="noopener noreferrer"
           className={classTitle}
           href={`http://www.google.com/search?q=${venueName}+${city}+${state}`}
-        >Search Results For This Venue</a>
+        >Search Results For {venueName}</a>
 
     } else if (info && title !== 'Booking Email'){
       return classTitle==='pa-status' ?

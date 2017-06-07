@@ -115,7 +115,7 @@ describe('VenueCard instantiation and printing only available props and validati
       venueName={'Sweet Venue #3'}
       state={'NE'}
       city={'Omaha'}
-      url={'http://www.superSweetVenue.com/'}
+      url={''}
       venuePhone={'(303) 999-9999'}
       bookingEmail={'notAValidEmail.com'}
       bookingContact={'Super Lame Promoter3'}
@@ -129,7 +129,7 @@ describe('VenueCard instantiation and printing only available props and validati
       { venueName: 'Sweet Venue #3',
         state: 'NE',
         city: 'Omaha',
-        url: 'http://www.superSweetVenue.com/',
+        url: '',
         venuePhone: '(303) 999-9999',
         bookingEmail: 'notAValidEmail.com',
         bookingContact: 'Super Lame Promoter3',
@@ -147,7 +147,7 @@ describe('VenueCard instantiation and printing only available props and validati
     expect(wrapper.find('article').props().className).toEqual('venue-card')
     expect(wrapper.find('h4').text()).toEqual('Omaha, NE')
 
-    expect(wrapper.find('a').first().text()).toEqual('http://www.superSweetVenue.com/')
+    expect(wrapper.find('a').first().text()).toEqual('Search Results For Sweet Venue #3')
 
     expect(wrapper.find('h5').length).toEqual(2)
     expect(wrapper.find('h5').first().text()).toEqual('Booking Contact: Super Lame Promoter3')
