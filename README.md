@@ -1,8 +1,8 @@
 # GigWrangler - Connecting Musicians and Venues -  App  
 
-Musician Booking app built with React/Redux/JS, Google Maps API and tested with Enzyme. I created my own data-set of 3000+ venues throughout the US, and used google maps API to pinpoint and connect them. I include venue data on each venue that allows musicians to connect with the venues and create a tour throughout the country.
+Musician Booking app built with React/Redux/JS, Google Maps API and tested with Enzyme, Mocha & Chai. I created my own data-set of 3300+ venues throughout the US, and used google maps API to pinpoint and connect them. I include venue data on each venue that allows musicians to connect with the venues and create a tour throughout the country.
 
-View it [here](https://adamj1232.github.io/Gig-Wrangler/)
+Try GigWrangler [here](https://adamj1232.github.io/Gig-Wrangler/)
 
 ## Project Status
 
