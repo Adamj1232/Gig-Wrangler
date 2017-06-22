@@ -244,11 +244,10 @@ select {
 .marker {
   height: 27px;
   width: 15px;
-  margin: 2.5px 5px 0 0;
+  margin: 2.5px 5px 0 30px;
 }
 
 .cluster {
   height: 35px;
   width: 35px;
-  margin-left: 25px;
 }

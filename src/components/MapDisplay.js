@@ -81,19 +81,19 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
       <div className='legend'>
         <div className='legend-div'>
           <img
+            src={MapCluster}
+            alt={"Number inside Map Cluster is the number of cities close by that have music venues"}
+            className='cluster'
+          />
+          <p> - Number of Cities with Venues Nearby</p>
+        </div>
+        <div className='legend-div'>
+          <img
             src={MapMarker}
             alt={"Map Marker number is the number of venues in that one city"}
             className='marker'
           />
           <p> - Number of Venues in City</p>
-        </div>
-        <div className='legend-div'>
-          <img
-            src={MapCluster}
-            alt={"Number inside Map Cluster is the number of cities close by that have music venues"}
-            className='cluster'
-          />
-          <p> - Number of Cities Clustered with Atleast 1 Venue</p>
         </div>
       </div>
 

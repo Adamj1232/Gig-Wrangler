@@ -60,7 +60,8 @@ export default class App extends Component {
     this.setState({
       searchResults: searchByState(state, city),
       searched: true,
-      searchedCity: city
+      searchedCity: city,
+      searchedState: state
     })
     this.scrollAfterSearch()
   }
