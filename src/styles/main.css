@@ -39,14 +39,13 @@ input:focus {
 
 form button {
   height: 26px;
-  width: 10%;
+  width: 100px;
   font-size: 1.1em;
   display: block;
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 6px 8px -1px black;
-  margin-top: 15px;
-  min-width: 60px;
+  margin-top: 20px;
 }
 
 button:hover {
@@ -135,6 +134,11 @@ select {
   margin-top: 15px;
   animation: blinker 1s linear;
   animation-iteration-count: 3;
+}
+
+#directions {
+  margin: 0 15px 10px;
+  text-shadow: -1px 1px 6px black;
 }
 
 @keyframes blinker {
@@ -244,10 +248,125 @@ select {
 .marker {
   height: 27px;
   width: 15px;
-  margin: 2.5px 5px 0 30px;
+  margin: 2.5px 5px 0 0;
 }
 
 .cluster {
   height: 35px;
   width: 35px;
+}
+
+.second-map-button, .third-map-button {
+  margin-left: 20px;
+}
+
+@media (max-width: 940px) {
+  select {
+    min-width: 250px;
+    margin: 15px 0 0;
+  }
+
+  input {
+    min-width: 238px;
+    margin: 0;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  #button {
+    min-width: 65px;
+    margin-top: 15px;
+  }
+
+  .input-holder {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 740px) {
+
+  .legend {
+    flex-direction: column;
+    margin: 15px 0;
+    padding: 5px 20px;
+  }
+
+  #map-container button {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 670px) {
+
+  .legend-with-buttons {
+    margin: 0 5%;
+  }
+
+  #map-container button {
+    height: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+
+  #main h1 {
+    font-size: 2.5em;
+    width: 97%
+  }
+
+  .marker {
+    margin-left: 0;
+  }
+
+  .mapButtons{
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .first-map-button, .second-map-button, .third-map-button {
+    margin: 10px 0;
+  }
+
+  .legend {
+    margin-bottom: 0;
+  }
+
+  .legend-with-buttons {
+    margin: 0;
+  }
+
+  .Logo {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media (max-width: 438px) {
+
+  #main h1 {
+    font-size: 1.9em;
+    width: 100%;
+  }
+
+  #directions {
+    font-size: 1.1em;
+  }
+
+  .legend {
+    padding: 10px;
+  }
+
+  .legend p {
+    font-size: .9em;
+  }
+
+  .Logo {
+    height: 30px;
+    width: 30px;
+  }
 }

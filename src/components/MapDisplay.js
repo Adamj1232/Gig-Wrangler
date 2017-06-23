@@ -77,32 +77,32 @@ const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, 
 
   return (
     <section id='map-container'>
-
-      <div className='legend'>
-        <div className='legend-div'>
-          <img
-            src={MapCluster}
-            alt={"Number inside Map Cluster is the number of cities close by that have music venues"}
-            className='cluster'
-          />
-          <p> - Number of Cities with Venues Nearby</p>
+      <div className='legend-with-buttons'>
+        <div className='legend'>
+          <div className='legend-div'>
+            <img
+              src={MapCluster}
+              alt={"Number inside Map Cluster is the number of cities close by that have music venues"}
+              className='cluster'
+            />
+            <p> - Number of Cities with Venues </p>
+          </div>
+          <div className='legend-div'>
+            <img
+              src={MapMarker}
+              alt={"Map Marker number is the number of venues in that one city"}
+              className='marker'
+            />
+            <p> - Number of Venues in City</p>
+          </div>
         </div>
-        <div className='legend-div'>
-          <img
-            src={MapMarker}
-            alt={"Map Marker number is the number of venues in that one city"}
-            className='marker'
-          />
-          <p> - Number of Venues in City</p>
+
+        <div className='mapButtons'>
+          <button className='first-map-button' onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
+          <button className='second-map-button' onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
+          <button className='third-map-button' onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
         </div>
       </div>
-
-      <div className='mapButtons'>
-        <button onClick={(e) => mapDisplayClick(1, e)}>{buttonTitle1}</button>
-        <button onClick={(e) => mapDisplayClick(5, e)}>{buttonTitle5}</button>
-        <button onClick={(e) => mapDisplayClick(10, e)}>{buttonTitle10}</button>
-      </div>
-
       <GoogleMap
         zoom={zoomIndex}
         center={mapCenter}
