@@ -20,7 +20,8 @@ export default class App extends Component {
       searched: false,
       searchedCity: '',
       searchedState: '',
-      venuesPerCity: 0
+      venuesPerCity: 0,
+      zoomFromScreenSize: 4
     }
   }
 
@@ -80,6 +81,20 @@ export default class App extends Component {
     })
   }
 
+  getScreenWidth() {
+    const windowSize = window.innerWidth
+    windowSize < 700 ?
+    this.setState({
+      zoomFromScreenSize: 3
+    })
+    :
+    null
+  }
+
+  componentDidMount(){
+    this.getScreenWidth()
+  }
+
   render() {
     return (
       <section>
@@ -124,6 +139,7 @@ export default class App extends Component {
           venuesPerCity={this.state.venuesPerCity}
           searchFromMap={this.searchVenuesByMap.bind(this)}
           mapPinFilter={this.typeHandler.bind(this)}
+          zoomFromScreenSize={this.state.zoomFromScreenSize}
         />
 
         <VenueGridContainer
