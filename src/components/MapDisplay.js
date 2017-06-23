@@ -7,10 +7,10 @@ import MapMarker from '../styles/images/map-marker.png'
 import MapCluster from '../styles/images/m3.png'
 
 
-const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, venuesPerCity }) => {
+const MapDisplay = withGoogleMap(({ searchResults, searchFromMap, mapPinFilter, venuesPerCity, zoomFromScreenSize }) => {
 
   let mapCenter = { lat: 40 , lng: -97 }
-  let zoomIndex = 4
+  let zoomIndex = zoomFromScreenSize
   let cluster = true
   let buttonTitle1 = 'All Cities with Venues'
   let buttonTitle5 = 'Cities with 5+ Venues'
