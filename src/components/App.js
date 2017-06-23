@@ -114,6 +114,7 @@ export default class App extends Component {
             Search
           </button>
         </form>
+        <h3 id='directions'>Enter a City or State to Search or Click a Marker on the Map</h3>
 
         <MapContainer
           mapElement={ <div className='mapElement' /> }

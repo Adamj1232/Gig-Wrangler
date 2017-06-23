@@ -27,7 +27,6 @@ export default class VenueGrid extends Component {
       return (
         <section className='results-display'>
           <h3 id='search-results'>{venues.length} Music Venues Found in the USA</h3>
-          <h3 id='directions'>Enter a City or State to Search or Click a Marker on the Map</h3>
         </section>
       )
     }
