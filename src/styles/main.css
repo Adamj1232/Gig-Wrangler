@@ -357,6 +357,11 @@ select {
     font-size: 1.1em;
   }
 
+  #venue-grid .results-display {
+    font-size: .9em;
+    padding: 5px;
+  }
+
   .legend {
     padding: 10px;
   }
@@ -369,4 +374,5 @@ select {
     height: 30px;
     width: 30px;
   }
+
 }
